@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    # Mengaktifkan mesin pengerjaan ulang URL
+    RewriteEngine On
+
+    # Mengatur folder dasar proyek (Pastikan sesuai nama folder di htdocs)
+    RewriteBase /sahrul1/
+
+    # Jika request bukan berupa direktori yang ada
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Dan jika request bukan berupa file yang ada
+    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # Maka arahkan semua request ke index.php
+    RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
